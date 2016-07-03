@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  grocery_list_id: 
+  food_id: 
+  quantity: 1
+  expiration_date: 2016-07-03 16:20:11
+
+two:
+  grocery_list_id: 
+  food_id: 
+  quantity: 1
+  expiration_date: 2016-07-03 16:20:11

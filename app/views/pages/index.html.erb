@@ -1,0 +1,25 @@
+<h1>Frozen</h1>
+<h2>Nulla andrà mai più a male nel tuo frigo.</h2>
+<small>Sei loggato come: <%= current_user.email %></small>
+
+<%= form_tag search_foods_path, id: "food-search-form", method: :get, remote: true do %>
+	<%= hidden_field_tag :grocery_list_id, @grocery_list.id %>
+	<%= text_field_tag :q, '', placeholder: "Cerca un cibo", id: "food-search-input" %>
+<% end %>
+
+<div id="food-search-div"></div>
+
+<h3>La tua lista della spesa</h3>
+<div id="grocery-list-div"><%= @grocery_list.food_list %></div>
+
+<h3>Tutti i prodotti, per categoria</h3>
+<ul>
+<% FoodCategory.all.each do |fc| %>
+<li><%= fc.name %></li>
+	<ul>
+	<% fc.foods.each do |food| %>
+		<li><%= food_name_with_link food, @grocery_list %></li>
+	<% end %>
+	</ul>
+<% end %>
+</ul>
